@@ -5,8 +5,7 @@ import React, {
   FormEvent,
   MouseEvent,
 } from "react";
-import { Link, useHistory } from "react-router-dom";
-
+import { Link, useHistory, useParams } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
 
 import * as S from "./styled";
@@ -30,9 +29,11 @@ const Register: React.FC = () => {
 
   const history = useHistory();
 
+  const { id } = useParams();
+
   useEffect(() => {
     async function loadProduto() {
-      await api.get(`/api/produto/${2}`).then((response) => {
+      await api.get(`/api/produto/${id}`).then((response) => {
         setProduto(response.data);
         setFormulario(response.data);
       });
@@ -135,7 +136,9 @@ const Register: React.FC = () => {
               />
             </div>
             <button type="submit">Concluir Edição</button>
-            <button onClick={handleDelete}>Deletar</button>
+            <button style={{ background: "tomato" }} onClick={handleDelete}>
+              Deletar
+            </button>
           </S.Field>
         </form>
       </S.Border>
