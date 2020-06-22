@@ -13,7 +13,12 @@ import { api } from "../../services";
   valor: string;
 } */
 
-const Register: React.FC = () => {
+export interface Props {
+  isDelete?: boolean;
+  isEnter?: boolean;
+}
+
+const Register: React.FC<Props> = () => {
   const [formulario, setFormulario] = useState({
     nome: "",
     quantidade: "",
@@ -41,13 +46,19 @@ const Register: React.FC = () => {
       valor,
     };
 
-    console.log("=>", data);
+    console.log("=>", alert);
 
-    await api.post("/api/produto", data);
-
-    alert("Registrado novo Cadastro");
-
-    history.push("/");
+    if (data.nome == "") {
+      alert("campo Produto está vazio");
+    } else if (data.quantidade == "") {
+      alert("campo Quantidade está vazio");
+    } else if (data.valor == "") {
+      alert("campo Valor está vazio");
+    } else {
+      await api.post("/api/produto", data);
+      history.push("/");
+      alert("Registrado novo Cadastro");
+    }
   }
 
   return (
@@ -92,7 +103,9 @@ const Register: React.FC = () => {
                 id="valor"
               />
             </div>
-            <button type="submit">Cadastrar Produto</button>
+            <S.Button isEnter type="submit">
+              Cadastrar Produto
+            </S.Button>
           </S.Field>
         </form>
       </S.Border>

@@ -19,7 +19,12 @@ interface Produtos {
   valor: number;
 }
 
-const Register: React.FC = () => {
+export interface Props {
+  isDelete?: boolean;
+  isEnter?: boolean;
+}
+
+const Register: React.FC<Props> = ({ isDelete, isEnter }) => {
   const [produto, setProduto] = useState<Produtos>({} as Produtos);
   const [formulario, setFormulario] = useState({
     nome: "Test",
@@ -135,10 +140,12 @@ const Register: React.FC = () => {
                 value={formulario.valor}
               />
             </div>
-            <button type="submit">Concluir Edição</button>
-            <button style={{ background: "tomato" }} onClick={handleDelete}>
+            <S.Button isEnter type="submit">
+              Concluir Edição
+            </S.Button>
+            <S.Button isDelete className="isDelete" onClick={handleDelete}>
               Deletar
-            </button>
+            </S.Button>
           </S.Field>
         </form>
       </S.Border>

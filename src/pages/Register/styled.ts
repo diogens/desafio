@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Props } from ".";
+
 export const WrapeContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -50,5 +52,26 @@ export const Field = styled.div`
     border-radius: 4px;
     background: var(--blue);
     color: var(--white);
+  }
+`;
+
+export const Button = styled.button<Props>`
+  margin: 10px 0;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  background: ${(props) => (props.isDelete ? "var(--tomato)" : "var(--blue)")};
+  color: ${(props) => (props.isEnter ? "var(--white)" : "var(--white)")};
+
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: var(--white);
+    color: ${(props) =>
+      props
+        ? props.isEnter
+          ? "var(--blue)"
+          : "var(--tomato)"
+        : "var(--white)"};
   }
 `;

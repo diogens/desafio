@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Props } from ".";
+
 export const WrapeContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,7 +25,7 @@ export const Border = styled.div`
   border-radius: 20px;
 `;
 
-export const Field = styled.div`
+export const Field = styled.div<Props>`
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -44,11 +46,43 @@ export const Field = styled.div`
       padding: 10px;
     }
   }
-  > button {
+
+  /* > button {
     margin: 10px 0;
     height: 40px;
+    width: 100%;
     border-radius: 4px;
-    background: var(--blue);
+    background: ${(props) =>
+      props.isDelete ? "var(--tomato)" : "var(--blue)"};
     color: var(--white);
+
+    transition: background 0.2s, color 0.2s;
+
+    &:hover {
+      background: ${(props) =>
+        props.isDelete ? "var(--blue)" : "var(--blue)"};
+      color: var(--blue);
+    }
+  } */
+`;
+
+export const Button = styled.button<Props>`
+  margin: 10px 0;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  background: ${(props) => (props.isDelete ? "var(--tomato)" : "var(--blue)")};
+  color: ${(props) => (props.isEnter ? "var(--white)" : "var(--white)")};
+
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: var(--white);
+    color: ${(props) =>
+      props
+        ? props.isEnter
+          ? "var(--blue)"
+          : "var(--tomato)"
+        : "var(--white)"};
   }
 `;
