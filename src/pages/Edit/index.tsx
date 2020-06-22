@@ -54,7 +54,6 @@ const Register: React.FC<Props> = ({ isDelete, isEnter }) => {
 
   async function handleDelete(event: MouseEvent) {
     const { id, nome, quantidade, valor } = produto;
-    console.log("oi", event);
 
     const data = {
       id,
@@ -85,8 +84,6 @@ const Register: React.FC<Props> = ({ isDelete, isEnter }) => {
       quantidade,
       valor,
     };
-
-    console.log("=>", data);
 
     await api.put(`/api/produto`, data);
 

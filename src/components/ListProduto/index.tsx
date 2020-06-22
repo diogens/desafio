@@ -17,7 +17,6 @@ const ListProduto: React.FC = () => {
 
   async function handleDelete(event: MouseEvent) {
     const { id, nome, quantidade, valor } = produto;
-    console.log("oi", event);
 
     const data = {
       id,
@@ -25,8 +24,6 @@ const ListProduto: React.FC = () => {
       quantidade,
       valor,
     };
-
-    console.log(data);
 
     await api.delete("/api/produto", { data }).then((response) => {
       console.log(response.data);

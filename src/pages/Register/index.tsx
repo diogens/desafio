@@ -28,7 +28,6 @@ const Register: React.FC<Props> = () => {
   const history = useHistory();
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
-    console.log(event.target.name);
     /* setFormulario({ ...formulario, [event.target.name]: event.target.value }); */
     const { name, value } = event.target;
     setFormulario({ ...formulario, [name]: value });
@@ -38,21 +37,17 @@ const Register: React.FC<Props> = () => {
     event.preventDefault();
     const { nome, quantidade, valor } = formulario;
 
-    console.log(formulario);
-
     const data = {
       nome,
       quantidade,
       valor,
     };
 
-    console.log("=>", alert);
-
-    if (data.nome == "") {
+    if (data.nome === "") {
       alert("campo Produto está vazio");
-    } else if (data.quantidade == "") {
+    } else if (data.quantidade === "") {
       alert("campo Quantidade está vazio");
-    } else if (data.valor == "") {
+    } else if (data.valor === "") {
       alert("campo Valor está vazio");
     } else {
       await api.post("/api/produto", data);

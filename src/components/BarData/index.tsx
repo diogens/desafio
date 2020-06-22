@@ -4,6 +4,8 @@ import { api } from "../../services";
 
 import * as S from "./styled";
 
+const data = new Date();
+
 interface Produtos {
   id: number;
   nome: string;
@@ -21,13 +23,12 @@ const BarData: React.FC = () => {
       });
     }
     loadProdutos();
-
-    console.log(produto.length);
   }, []);
   return (
     <S.WrapeContainer>
       <p>
-        Data: 19/06/2020 - 17:02hs | Total de produtos -
+        Data: {`${data.getDate()}/${data.getMonth()}/${data.getFullYear()}`} -
+        {data.getHours()}:{`${data.getMinutes()}`} | Total de produtos -
         <span> {produto.length}</span>
       </p>
     </S.WrapeContainer>
