@@ -9,45 +9,23 @@ export const WrapeCard = styled.div<Props>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: var(--blue);
+  background: linear-gradient(to right, var(--blue2), var(--blue));
 
   width: 200px;
   height: 100px;
   border-radius: 20px;
-  padding: 0px 0px;
+
+  padding: 30px 20px;
+
   cursor: pointer;
 
-  transition: border-radius 0.2s, background 0.2s;
+  transition: font-size 0.4s, color 0.2s, border-radius 0.2s, background 0.2s;
 
   &:hover {
     border-radius: 10px;
-    background: ${(props) => (props.isEdit ? "var(--blue)" : "var(--blue2)")};
-  }
-
-  > header {
-    background: var(--blue2);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom: 1px solid var(--white);
-    display: flex;
-
-    justify-content: flex-end;
-
-    > button {
-      border: none;
-      background: transparent;
-
-      transition: 0.2s, background 0.2s;
-      &:hover {
-        background: var(--blue);
-      }
-      > svg {
-        margin: 3px;
-        transition: 0.2s, background 0.2s;
-        &:hover {
-          background: var(--blue);
-        }
-      }
+    background: linear-gradient(to right, var(--blue), var(--blue2));
+    h2 {
+      color: var(--dark);
     }
   }
 
@@ -55,11 +33,9 @@ export const WrapeCard = styled.div<Props>`
     font-weight: bold;
     color: var(--white);
     font-size: 1.2em;
-    padding: 1px 15px;
   }
 
   > div {
-    padding: 1px 15px;
     display: flex;
     justify-content: space-between;
 

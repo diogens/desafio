@@ -1,5 +1,4 @@
 import React from "react";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 import * as S from "./styled";
 
@@ -11,7 +10,7 @@ export interface Props {
   isDelete?: boolean;
 }
 
-const Card: React.FC<Props> = ({ name, value, qtd, isEdit, isDelete }) => {
+const Card: React.FC<Props> = ({ name, value, qtd }) => {
   return (
     <S.WrapeCard>
       {/* <header>
