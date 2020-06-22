@@ -12,7 +12,7 @@ export default createGlobalStyle`
 
     html, body, #root{
         height: 100%100%;
-        background: tomato;
+        background: var(--primary);
     }
 
     *, button, input {

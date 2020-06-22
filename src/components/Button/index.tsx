@@ -32,7 +32,11 @@ const Button: React.FC<Props> = ({
       add={add}
       list={list}
     >
-      {isHome && <img src={logo} alt="" />}
+      {isHome && (
+        <a href="/">
+          <img src={logo} alt="" />
+        </a>
+      )}
       {add && <FA.GoDiffAdded color="#FFF" size={33} />}
       {list && <FA.GoListOrdered color="#FFF" size={33} />}
     </S.Button>

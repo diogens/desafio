@@ -46,7 +46,6 @@ const ListProduto: React.FC = () => {
         console.log("vazio");
       }
     }
-    console.log(event.target.value);
     loadProduto();
   }
 
@@ -74,7 +73,7 @@ const ListProduto: React.FC = () => {
             })}
             qtd={produto.quantidade}
           />
-          <button onClick={handleDelete}>deletar</button>
+          <button onClick={handleDelete}>Deletar</button>
         </>
       )}
     </S.WrapeContainer>

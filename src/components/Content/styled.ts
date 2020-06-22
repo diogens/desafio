@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const WraperContainer = styled.div`
   grid-area: CT;
-  background: var(--dark);
+
+  width: auto;
 
   display: flex;
   justify-content: center;

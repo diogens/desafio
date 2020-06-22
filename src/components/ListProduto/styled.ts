@@ -7,6 +7,22 @@ export const WrapeContainer = styled.div`
 
   background: var(--dark);
 
+  > button {
+    margin: 10px 0;
+    height: 40px;
+    width: 100%;
+    border-radius: 4px;
+    background: var(--tomato);
+    color: var(--white);
+
+    transition: background 0.2s, color 0.2s;
+
+    &:hover {
+      background: white;
+      color: var(--tomato);
+    }
+  }
+
   > div {
     display: flex;
   }
@@ -30,6 +46,7 @@ export const WrapeContainer = styled.div`
   > div {
     /*  display: flex;
     flex-direction: row; */
+
     > svg {
       color: #888;
       font-size: 15px;
