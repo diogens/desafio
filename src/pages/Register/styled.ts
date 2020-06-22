@@ -3,9 +3,18 @@ import styled from "styled-components";
 export const WrapeContainer = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 100vh;
+  width: 100%;
   height: 80vh;
+  span {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 0px;
+  }
 `;
 
 export const Border = styled.div`
@@ -32,6 +41,7 @@ export const Field = styled.div`
       height: 30px;
       border-radius: 5px;
       border: none;
+      padding: 10px;
     }
   }
   > button {

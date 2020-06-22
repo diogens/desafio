@@ -4,7 +4,6 @@ import { FiArrowLeft } from "react-icons/fi";
 
 import * as S from "./styled";
 
-import logo from "../../assets/logo.png";
 import { api } from "../../services";
 
 /* interface Produtos {
@@ -54,7 +53,10 @@ const Register: React.FC = () => {
   return (
     <S.WrapeContainer>
       <Link to="/">
-        <FiArrowLeft color="#fff" size={20} />
+        <span>
+          <FiArrowLeft color="#fff" size={20} />
+          <h2>Home</h2>
+        </span>
       </Link>
 
       <S.Border>
