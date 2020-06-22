@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, MouseEvent } from "react";
 import { FaSearch } from "react-icons/fa";
 
 import { api } from "../../services";
@@ -15,10 +15,10 @@ const ListProduto: React.FC = () => {
     valor: 0,
   });
 
-  const { id, nome, quantidade, valor } = produto;
-
-  async function handleDelete(event: ChangeEvent<HTMLButtonElement>) {
+  async function handleDelete(event: MouseEvent) {
+    const { id, nome, quantidade, valor } = produto;
     console.log("oi", event);
+
     const data = {
       id,
       nome,
@@ -28,9 +28,11 @@ const ListProduto: React.FC = () => {
 
     console.log(data);
 
-    /* await api.delete("/api/produto");
+    await api.delete("/api/produto", { data }).then((response) => {
+      console.log(response.data);
+    });
 
-    alert("Produto deletado"); */
+    alert("Produto deletado");
   }
 
   async function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
@@ -72,7 +74,7 @@ const ListProduto: React.FC = () => {
             })}
             qtd={produto.quantidade}
           />
-          <button>deletar</button>
+          <button onClick={handleDelete}>deletar</button>
         </>
       )}
     </S.WrapeContainer>

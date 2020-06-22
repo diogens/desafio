@@ -1,4 +1,10 @@
-import React, { useEffect, useState, ChangeEvent, FormEvent } from "react";
+import React, {
+  useEffect,
+  useState,
+  ChangeEvent,
+  FormEvent,
+  MouseEvent,
+} from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import { FiArrowLeft } from "react-icons/fi";
@@ -40,6 +46,28 @@ const Register: React.FC = () => {
     setFormulario({ ...formulario, [name]: value });
   }
 
+  async function handleDelete(event: MouseEvent) {
+    const { id, nome, quantidade, valor } = produto;
+    console.log("oi", event);
+
+    const data = {
+      id,
+      nome,
+      quantidade,
+      valor,
+    };
+
+    console.log(data);
+
+    await api.delete("/api/produto", { data }).then((response) => {
+      console.log(response.data);
+    });
+
+    alert("Produto deletado");
+
+    history.push("/");
+  }
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     const { id } = produto;
@@ -56,7 +84,7 @@ const Register: React.FC = () => {
 
     await api.put(`/api/produto`, data);
 
-    alert("Editado");
+    alert("Atualizado");
 
     history.push("/");
   }
@@ -107,6 +135,7 @@ const Register: React.FC = () => {
               />
             </div>
             <button type="submit">Concluir Edição</button>
+            <button onClick={handleDelete}>Deletar</button>
           </S.Field>
         </form>
       </S.Border>
